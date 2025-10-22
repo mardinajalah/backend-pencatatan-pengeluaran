@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Saldo {
+  id     Int    @id @default(autoincrement())
+  saldo  Int
+}
+
+model TransactionDay {
+  id            Int           @id @default(autoincrement())
+  day           String        // contoh: "2025-10-22"
+  amount        String        // total transaksi di hari itu (misalnya "120000")
+  transactions  Transaction[] // relasi ke tabel Transaction
+}
+
+
+model Transaction {
+  id               Int             @id @default(autoincrement())
+  category         String
+  description      String
+  time             String          // contoh: "09:30"
+  amount           String
+  transactionDay   TransactionDay? @relation(fields: [transactionDayId], references: [id])
+  transactionDayId Int?
+}
+
