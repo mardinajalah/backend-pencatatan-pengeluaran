@@ -1,17 +1,11 @@
 import prisma from "../config/prisma";
 
-interface NewDataType {
-    nama: string
-    email: string
-    password: string
-}
-
 const getDataUsers = async () => {
-    return await prisma.user.findMany()
+    return await prisma.transaction.findMany()
 }
 
-const createDataUser = async (newData: NewDataType) => {
-    return await prisma.user.create({
+const createDataUser = async (newData: any) => {
+    return await prisma.transaction.create({
         data: newData
     })
 }

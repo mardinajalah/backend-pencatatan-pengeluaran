@@ -1,9 +1,9 @@
 import { Response, Request } from "express"
-import UserModels from "../models/transaction"
+import TransactionModels from "../models/transaction"
 
 const getAllUsers = async (req: Request, res: Response) => {
     try {
-        const data = await UserModels.getDataUsers()
+        const data = await TransactionModels.getDataUsers()
         res.status(200).json({
             message: "data berhasil di tampilkan",
             data
@@ -18,7 +18,7 @@ const getAllUsers = async (req: Request, res: Response) => {
 const createUser = async (req: Request, res: Response) => {
     const newData = req.body
     try {
-        const data = await UserModels.createDataUser(newData)
+        const data = await TransactionModels.createDataUser(newData)
 
         res.status(201).json({
             message: "data berhasil di tambahkan",
