@@ -1,9 +1,9 @@
 import { Response, Request } from "express"
 import TransactionModels from "../models/transaction"
 
-const getAllUsers = async (req: Request, res: Response) => {
+const getAllTransaction = async (req: Request, res: Response) => {
     try {
-        const data = await TransactionModels.getDataUsers()
+        const data = await TransactionModels.getDataTransaction()
         res.status(200).json({
             message: "data berhasil di tampilkan",
             data
@@ -15,10 +15,10 @@ const getAllUsers = async (req: Request, res: Response) => {
     }
 }
 
-const createUser = async (req: Request, res: Response) => {
+const createTransaction = async (req: Request, res: Response) => {
     const newData = req.body
     try {
-        const data = await TransactionModels.createDataUser(newData)
+        const data = await TransactionModels.createDataTransaction(newData)
 
         res.status(201).json({
             message: "data berhasil di tambahkan",
@@ -32,4 +32,4 @@ const createUser = async (req: Request, res: Response) => {
 }
 
 
-export default { getAllUsers, createUser }
+export default { getAllTransaction, createTransaction }

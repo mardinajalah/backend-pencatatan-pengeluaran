@@ -1,13 +1,13 @@
 import prisma from "../config/prisma";
 
-const getDataUsers = async () => {
+const getDataTransaction = async () => {
     return await prisma.transaction.findMany()
 }
 
-const createDataUser = async (newData: any) => {
+const createDataTransaction = async (newData: any) => {
     return await prisma.transaction.create({
         data: newData
     })
 }
 
-export default { getDataUsers, createDataUser }
+export default { getDataTransaction, createDataTransaction }
