@@ -1,0 +1,12 @@
+GET http://localhost:3000/transaction/
+
+
+###
+POST http://localhost:3000/transaction/
+Content-Type: application/json
+
+{
+    "nama": "Akbar",
+    "email": "akbar@gamil.com",
+    "password": "4321"
+}

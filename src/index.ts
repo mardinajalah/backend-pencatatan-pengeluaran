@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4000
 
 app.use(express.json())
 
-app.use("/", transactionRouter)
+app.use("/transaction", transactionRouter)
 
 app.listen(PORT, () => {
     console.log(`server running in http://localhost:${PORT}`)
