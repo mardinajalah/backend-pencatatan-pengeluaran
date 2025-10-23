@@ -1,7 +1,7 @@
 import express from "express"
 import UserControllers from "../controllers/transaction"
 
-const router = express()
+const router = express.Router();
 
 
 router.get("/", UserControllers.getAllTransaction)

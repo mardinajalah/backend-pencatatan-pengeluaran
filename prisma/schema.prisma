@@ -14,9 +14,9 @@ model Saldo {
 
 model TransactionDay {
   id            Int           @id @default(autoincrement())
-  day           String        // contoh: "2025-10-22"
-  amount        String        // total transaksi di hari itu (misalnya "120000")
-  transactions  Transaction[] // relasi ke tabel Transaction
+  day           String
+  amount        Int
+  transactions  Transaction[]
 }
 
 
@@ -25,7 +25,7 @@ model Transaction {
   category         String
   description      String
   time             String          // contoh: "09:30"
-  amount           String
+  amount           Int
   transactionDay   TransactionDay? @relation(fields: [transactionDayId], references: [id])
   transactionDayId Int?
 }
